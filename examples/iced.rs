@@ -4,9 +4,8 @@ use iced::{
     theme::Style,
     widget::{button, column, container, text},
     Alignment::Center,
-    Element,
     Length::Fill,
-    Result,
+    Result, Widget,
 };
 
 const COLORS: catppuccin::FlavorColors = catppuccin::PALETTE.latte.colors;
@@ -34,7 +33,7 @@ impl Counter {
         }
     }
 
-    fn view(&self) -> Element<'_, Message> {
+    fn view(&self) -> impl Widget<Message> {
         let green: iced::Color = COLORS.green.into();
         let red: iced::Color = COLORS.red.into();
         container(
@@ -63,7 +62,6 @@ impl Counter {
         .padding(20)
         .center_x(Fill)
         .center_y(Fill)
-        .into()
     }
 }
 
